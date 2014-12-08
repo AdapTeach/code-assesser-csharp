@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using AdapTeach_CSharp_Code_Assessment_WebAPI.Data;
+using AdapTeach_CSharp_Code_Assesser_WebAPI.Data;
 
-namespace AdapTeach_CSharp_Code_Assessment_WebAPI.Models
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
 {
     /// <summary>
     /// Model

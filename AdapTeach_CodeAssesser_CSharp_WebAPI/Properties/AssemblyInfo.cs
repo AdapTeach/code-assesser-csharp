@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("AdapTeach_CSharp_Code_Assessment_WebAPI")]
+[assembly: AssemblyTitle("AdapTeach_CSharp_Code_Assesser_WebAPI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("AdapTeach_CSharp_Code_Assessment_WebAPI")]
+[assembly: AssemblyProduct("AdapTeach_CSharp_Code_Assesser_WebAPI")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

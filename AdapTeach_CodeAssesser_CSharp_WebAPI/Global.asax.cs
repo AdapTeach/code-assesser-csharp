@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace AdapTeach_CSharp_Code_Assessment_WebAPI
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

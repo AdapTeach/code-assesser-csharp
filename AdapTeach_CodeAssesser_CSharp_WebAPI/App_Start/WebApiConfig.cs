@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 
-namespace AdapTeach_CSharp_Code_Assessment_WebAPI
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI
 {
     public static class WebApiConfig
     {
@@ -16,8 +16,8 @@ namespace AdapTeach_CSharp_Code_Assessment_WebAPI
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "CSharp_Code_Assessment_WebAPI",
-                routeTemplate: "Code_Assessment_WebAPI/{controller}/{title}",
+                name: "CSharp_Code_Assesser_WebAPI",
+                routeTemplate: "Code_Assesser_WebAPI/{controller}/{title}",
                 defaults: new { title = RouteParameter.Optional }
             );
 

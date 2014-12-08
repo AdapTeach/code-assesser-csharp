@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using AdapTeach_CSharp_Code_Assessment_WebAPI.Data;
+using AdapTeach_CSharp_Code_Assesser_WebAPI.Data;
 
-namespace AdapTeach_CSharp_Code_Assessment_WebAPI.Controllers
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Controllers
 {
     /// <summary>
     /// 
