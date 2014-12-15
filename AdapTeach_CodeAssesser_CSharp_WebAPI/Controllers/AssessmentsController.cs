@@ -4,46 +4,45 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using AdapTeach_CSharp_Code_Assesser_WebAPI.Data;
+using AdapTeach_CSharp_Code_Assesser_WebAPI.Models;
 
 namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Controllers
 {
     /// <summary>
-    /// Controller qui prends un buffer JSON representant un Assessment en entrée, le process et le retourne en JSON complété de ses infos d'assessment
+    /// Controller qui prends un buffer JSON representant une Submission en entrée envoyée en HTTP POST, le process et le retourne en JSON complété de ses infos d'assessment
     /// </summary>
     public class AssessmentsController : ApiController
     {
         /// <summary>
-        /// Fait passer la validation de l'assessment
+        /// Fait passer la validation de la submission
         /// </summary>
         /// <param name="ass"></param>
-        private static Assessment ProcessAssessment(Assessment ass)
+        private static SubmissionResult ProcessSubmission(Submission sub)
         {
-            Assessment toReturn = null;
+            SubmissionResult toReturn = null;
             return toReturn;
         }
 
-        ///// <summary>
-        ///// NotImplemented
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<Assessment> GetAllAssessments()
-        //{
-        //    return null;
-        //}
-
         /// <summary>
-        /// Web API qui fait passer un assessment
+        /// Web API qui traite une submission
         /// </summary>
         /// <param name="title"></param>
         /// <returns></returns>
-        public IHttpActionResult GetAssessment(Assessment ass)
+        [HttpPost]
+        public IHttpActionResult GetAssessment([FromBody] Submission sub)
         {
-            if (ass == null)
+            try
             {
-                return NotFound();
+                if (sub == null)
+                {
+                    return NotFound();
+                }
+                return Ok(AssessmentsController.ProcessSubmission(sub));
             }
-            return Ok(AssessmentsController.ProcessAssessment(ass));
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
         }
     }
 }

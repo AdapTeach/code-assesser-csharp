@@ -25,9 +25,9 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI
             //var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             //config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
             var jqueryFormatter = config.Formatters.FirstOrDefault(x => x.GetType() == typeof(JQueryMvcFormUrlEncodedFormatter));
+            config.Formatters.Remove(jqueryFormatter);
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.Remove(config.Formatters.FormUrlEncodedFormatter);
-            config.Formatters.Remove(jqueryFormatter);
 
             // renvoyer du JSON par défaut
             //var jsonFormatter = config.Formatters.JsonFormatter;

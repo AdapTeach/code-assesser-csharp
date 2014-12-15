@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AdapTeach_CSharp_Code_Assessment_WebAPI.Models
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
 {
     /// <summary>
     /// The code-assesser-[language] modules are expected to respond to POST requests in a standardized way.
@@ -47,8 +47,7 @@ namespace AdapTeach_CSharp_Code_Assessment_WebAPI.Models
         {
             get;
             set;
-        }
-        
+        } 
         
         //-------------------------------------------------------------------------------------------------------------      
         #endregion Properties
