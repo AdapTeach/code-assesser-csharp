@@ -6,15 +6,15 @@ using System.Web;
 namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
 {
     /// <summary>
-    /// Classe validation d'un exercice
+    /// Learners submit solutions to assessments. To check if a submission is correct, the assessment's creator writes one or more tests that will be run against the submitted code. If a submission passes all the tests for the assessment, then the solution is considered correct.
     /// </summary>
-    public class Assessment
+    public class Test
     {
         #region Properties
         //-------------------------------------------------------------------------------------------------------------      
-
+        
         /// <summary>
-        /// Title unique
+        /// a description of the tested feature (typically starts with "Should...")
         /// </summary>
         public string Title
         {
@@ -23,69 +23,42 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
         }
 
         /// <summary>
-        /// Creator
+        /// (can be empty) a string holding a piece of code that is executed once for each submission. It can be used to create and assign variables that will be used in the assertions.
         /// </summary>
-        public string Creator
+        public string InitializationCode
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Instructions
+        /// an array (can NOT be empty) of expressions checking that the submitted code has the expected behavior. For a test to pass, all assertions must pass. An assertion can return a boolean (true means that the behavior is correct, false means that the submission fails the test). Alternatively, an assertion can throw an exception if the submitted code has an unexpected behavior. This allows the use of assertion libraries for more readable and expressive assertions.
         /// </summary>
-        public string Instructions
+        public string Assertions
         {
             get;
             set;
         }
 
-        /// <summary>
-        /// Liste de guides
-        /// </summary>
-        public IEnumerable<Guide> Guides
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Liste de tests
-        /// </summary>
-        public IEnumerable<Test> Tests
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Unités de compilation fournies
-        /// </summary>
-        public IEnumerable<CompilationUnit> ProvidedCompilationUnits
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Unités de compilation à envoyer
-        /// </summary>
-        public IEnumerable<CompilationUnit> CompilationUnitsToSubmit
-        {
-            get;
-            set;
-        }
+        ///// <summary>
+        ///// Assessment
+        ///// </summary>
+        //public Assessment Assessment
+        //{
+        //    get;
+        //    set;
+        //}
 
         //-------------------------------------------------------------------------------------------------------------      
         #endregion Properties
 
         #region Constructor
         //-------------------------------------------------------------------------------------------------------------      
-        
+
         /// <summary>
-        /// Default Constructor
+        /// Default constructor
         /// </summary>
-        public Assessment()
+        public Test()
         {
         }
 
@@ -101,6 +74,6 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
         //-------------------------------------------------------------------------------------------------------------      
         //-------------------------------------------------------------------------------------------------------------      
         #endregion Public Methods
-        
+
     }
 }

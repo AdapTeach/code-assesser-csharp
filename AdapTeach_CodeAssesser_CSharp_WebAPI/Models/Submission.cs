@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using AdapTeach_CSharp_Code_Assesser_WebAPI.Data;
 
-namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
 {
     /// <summary>
-    /// Model
+    /// The code-assessments module send POST requests to the respective code-assesser-[language] modules. For example, when a learner submits a solution for a java assessment, a request is sent to code-assesser-java.
     /// </summary>
-    public class CodeAssesserModel
+    public class Submission
     {
         #region Properties
         //-------------------------------------------------------------------------------------------------------------      
 
         /// <summary>
-        /// Submission
+        /// the complete assessment for which the submission has been made
         /// </summary>
-        public Submission Submission
+        public Assessment Assessment
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Assessment
+        /// the same compilation units found in the compilationUnitsToSubmit array, most probably modified by the learner in his attempt to submit a correct solution
         /// </summary>
-        public Assessment Assessment
+        public IEnumerable<CompilationUnit> SubmittedCompilationUnits
         {
             get;
             set;
@@ -41,7 +40,7 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
         /// <summary>
         /// Default constructor
         /// </summary>
-        public CodeAssesserModel()
+        public Submission()
         {
         }
 
@@ -56,7 +55,6 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
         #region Public Methods
         //-------------------------------------------------------------------------------------------------------------      
         //-------------------------------------------------------------------------------------------------------------      
-        #endregion Public Methods
-        
+        #endregion Public Methods        
     }
 }

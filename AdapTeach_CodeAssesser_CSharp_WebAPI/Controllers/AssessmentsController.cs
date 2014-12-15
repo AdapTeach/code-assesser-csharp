@@ -9,39 +9,41 @@ using AdapTeach_CSharp_Code_Assesser_WebAPI.Data;
 namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Controllers
 {
     /// <summary>
-    /// 
+    /// Controller qui prends un buffer JSON representant un Assessment en entrée, le process et le retourne en JSON complété de ses infos d'assessment
     /// </summary>
     public class AssessmentsController : ApiController
     {
-        private Assessment[] assessments = new Assessment[] 
-        { 
-            new Assessment { Title = "Title1" }, 
-            new Assessment { Title = "Title2" }, 
-            new Assessment { Title = "Title3" }
-        };
+        /// <summary>
+        /// Fait passer la validation de l'assessment
+        /// </summary>
+        /// <param name="ass"></param>
+        private static Assessment ProcessAssessment(Assessment ass)
+        {
+            Assessment toReturn = null;
+            return toReturn;
+        }
 
         /// <summary>
-        /// 
+        /// NotImplemented
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Assessment> GetAllAssessments()
         {
-            return this.assessments;
+            return null;
         }
 
         /// <summary>
-        /// 
+        /// Web API qui fait passer un assessment
         /// </summary>
         /// <param name="title"></param>
         /// <returns></returns>
-        public IHttpActionResult GetAssessment(string title)
+        public IHttpActionResult GetAssessment(Assessment ass)
         {
-            var assessment = this.assessments.FirstOrDefault(ass => ass.Title == title);
-            if (assessment == null)
+            if (ass == null)
             {
                 return NotFound();
             }
-            return Ok(assessment);
+            return Ok(AssessmentsController.ProcessAssessment(ass));
         }
     }
 }

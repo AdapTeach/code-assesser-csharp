@@ -5,51 +5,90 @@ using System.Web;
 
 namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
 {
-    public class CompilationUnit
+    /// <summary>
+    /// Assessment represents a single coding challenge to be tackled by a learner.
+    /// </summary>
+    public class Assessment
     {
         #region Properties
         //-------------------------------------------------------------------------------------------------------------      
 
         /// <summary>
-        /// Name is required
+        /// the id of the assessment resource provided by the code-assessments project
         /// </summary>
-        public string Name
+        public string Id
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Code is required
+        /// a short descriptive name for the assessment
         /// </summary>
-        public string Code
+        public string Title
         {
             get;
             set;
         }
 
         /// <summary>
-        /// type is required
+        /// the programming language of the assessment and it's solution (can be java, csharp...)
         /// </summary>
-        public string Type
+        public string Language
+        {
+            get;
+            set;
+        }
+
+        ///// <summary>
+        ///// Creator
+        ///// </summary>
+        //public string Creator
+        //{
+        //    get;
+        //    set;
+        //}
+
+        /// <summary>
+        /// a textual description of the solution the learner is expected to submit
+        /// </summary>
+        public string Instructions
+        {
+            get;
+            set;
+        }
+
+        ///// <summary>
+        ///// Liste de guides
+        ///// </summary>
+        //public IEnumerable<Guide> Guides
+        //{
+        //    get;
+        //    set;
+        //}
+
+        /// <summary>
+        /// an array (can NOT be empty) of tests
+        /// </summary>
+        public IEnumerable<Test> Tests
         {
             get;
             set;
         }
 
         /// <summary>
-        /// a CompilationUnit must belong to a user
+        /// an array (can be empty) of compilation units which are part of the assessment, but that the learner cannot edit
         /// </summary>
-        public string Creator
+        public IEnumerable<CompilationUnit> ProvidedCompilationUnits
         {
             get;
             set;
         }
 
         /// <summary>
-        /// a CompilationUnit must belong to an assessment
+        /// an array (can NOT be empty) of compilation units which the learner is able to edit. Typically, these are the compilation units that the learer is expected to modify in order to submit the correct solution.
         /// </summary>
-        public Assessment Assessment
+        public IEnumerable<CompilationUnit> CompilationUnitsToSubmit
         {
             get;
             set;
@@ -60,11 +99,11 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
 
         #region Constructor
         //-------------------------------------------------------------------------------------------------------------      
-
+        
         /// <summary>
-        /// Default constructor
+        /// Default Constructor
         /// </summary>
-        public CompilationUnit()
+        public Assessment()
         {
         }
 
@@ -73,17 +112,11 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
 
         #region Private Methods
         //-------------------------------------------------------------------------------------------------------------      
-
-
-
         //-------------------------------------------------------------------------------------------------------------      
         #endregion Private Methods
 
         #region Public Methods
         //-------------------------------------------------------------------------------------------------------------      
-
-
-
         //-------------------------------------------------------------------------------------------------------------      
         #endregion Public Methods
         
