@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
 {
     /// <summary>
     /// The code-assessments module send POST requests to the respective code-assesser-[language] modules. For example, when a learner submits a solution for a java assessment, a request is sent to code-assesser-java.

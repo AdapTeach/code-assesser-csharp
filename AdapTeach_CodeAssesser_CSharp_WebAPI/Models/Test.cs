@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
 {
     /// <summary>
     /// Learners submit solutions to assessments. To check if a submission is correct, the assessment's creator writes one or more tests that will be run against the submitted code. If a submission passes all the tests for the assessment, then the solution is considered correct.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
 {
     /// <summary>
     /// Compilation Unit represents a single unit of code, and its form can vary greatly depending on the programming language. For example, in Java a compilation unit can be a class, an interface or an enum

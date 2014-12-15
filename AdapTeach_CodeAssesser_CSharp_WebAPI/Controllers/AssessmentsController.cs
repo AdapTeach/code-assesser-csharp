@@ -23,14 +23,14 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Controllers
             return toReturn;
         }
 
-        /// <summary>
-        /// NotImplemented
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<Assessment> GetAllAssessments()
-        {
-            return null;
-        }
+        ///// <summary>
+        ///// NotImplemented
+        ///// </summary>
+        ///// <returns></returns>
+        //public IEnumerable<Assessment> GetAllAssessments()
+        //{
+        //    return null;
+        //}
 
         /// <summary>
         /// Web API qui fait passer un assessment

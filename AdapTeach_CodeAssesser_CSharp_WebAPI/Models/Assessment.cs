@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Data
+namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Models
 {
     /// <summary>
     /// Assessment represents a single coding challenge to be tackled by a learner.

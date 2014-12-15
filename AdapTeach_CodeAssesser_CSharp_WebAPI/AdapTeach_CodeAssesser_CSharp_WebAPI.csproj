@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -93,12 +94,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="App_Data\Assessment.cs" />
-    <Compile Include="App_Data\CompilationUnit.cs" />
-    <Compile Include="App_Data\Guide.cs" />
-    <Compile Include="App_Data\Submission.cs" />
-    <Compile Include="App_Data\Test.cs" />
-    <Compile Include="Models\CodeAssesserModel.cs" />
+    <Compile Include="Models\Assessment.cs" />
+    <Compile Include="Models\CompilationUnit.cs" />
+    <Compile Include="Models\Guide.cs" />
+    <Compile Include="Models\Submission.cs" />
+    <Compile Include="Models\SubmissionResult.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,7 +111,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

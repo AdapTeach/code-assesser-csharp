@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product App</title>
+</head>
+<body>
+
+    <!--<div>
+        <h2>All Products</h2>
+        <ul id="products" />
+    </div>-->
+    <div>
+        <h2>Assess user code</h2>
+        <input type="text" id="assessmentId" width="250" height="250" />
+        <input type="button" value="Process assessment GET" onclick="findGET();" />
+        <input type="button" value="Process assessment POST" onclick="findPOST();" />
+        <p id="result" />
+    </div>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = 'Code_Assesser_WebAPI/Assessments/';
+
+    $(document).ready(function () {
+      //// Send an AJAX request
+      //$.getJSON(uri)
+      //    .done(function (data) {
+      //      // On success, 'data' contains a list of products.
+      //      $.each(data, function (key, item) {
+      //        // Add a list item for the product.
+      //        $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+      //      });
+      //    });
+    });
+
+    function DisplayAssessment(item) {
+        return item.Id + '\n' + item.Title+ '\n' + item.Language + '\n' + item.Instructions;
+    }
+
+    function findGET() {
+        var ass = $('#assessmentId').val();
+        $.getJSON(uri + '/' + JSON.stringify(ass))
+          .done(function (data) {
+              $('#result').text(DisplayAssessment(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+              $('#result').text('Error: ' + err);
+          });
+    }
+    function findPOST() {
+        var ass = $('#assessmentId').val();
+        $.getJSON(uri + '/' + ass)
+          .done(function (data) {
+              $('#result').text(DisplayAssessment(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+              $('#result').text('Error: ' + err);
+          });
+    }
+    </script>
+</body>
+</html>
