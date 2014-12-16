@@ -8,31 +8,42 @@
         <h2>Assess user code</h2>
         <input type="text" id="submissionId" size="50" />
         <input type="button" value="Submit POST" onclick="submitPOST();" />
-        <p id="result" />
+        <div id="result" />
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
         var uri = 'Code_Assesser_WebAPI/Assessments';
+        
+        function DisplayStrings(items) {
+            var toReturn = '';
+            for(key in items)
+            {
+                toReturn += '  - ' + items[key] + '<br />';
+            }
+            return toReturn;
+        }
 
         function DisplayResult(item) {
-            return item.Pass;
+            return '<br /><br /><b>Pass</b>: ' + item.Pass + '<br /><br /><b>CompilationErrors</b>:<br />' + DisplayStrings(item.CompilationErrors) + '<br /><b>ExceptionMessage</b>: ' + item.ExceptionMessage + '<br /><b>FailedTestMessage</b>:<br />' + DisplayStrings(item.FailedTestMessage);
         }
+
         function submitPOST() {
             var submission = $('#submissionId').val();
             $.ajax({
                 type: 'POST',
                 url: uri,
-                data: JSON.stringify(submission),
+                data: submission,
+                //data: JSON.stringify(submission),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 success: function (data) { console.log(data) }
             })
               .done(function (data) {
-                  $('#result').text('Pass: ' + DisplayResult(data));
+                  $('#result').html(DisplayResult(data));
               })
               .fail(function (jqXHR, textStatus, err) {
-                  $('#result').text('Error: ' + err);
+                  $('#result').html('<br />Error: ' + err);
               });
         }
     </script>
