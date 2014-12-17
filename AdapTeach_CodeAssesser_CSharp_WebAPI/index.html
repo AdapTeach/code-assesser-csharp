@@ -28,6 +28,10 @@
             return '<br /><br /><b>Pass</b>: ' + item.Pass + '<br /><br /><b>CompilationErrors</b>:<br />' + DisplayStrings(item.CompilationErrors) + '<br /><b>ExceptionMessage</b>: ' + item.ExceptionMessage + '<br /><b>FailedTestMessage</b>:<br />' + DisplayStrings(item.FailedTestMessage);
         }
 
+        function DisplayErrorDetails(item) {
+            return '<b>ExceptionMessage</b>: ' + item.ExceptionMessage + '<br /><b>ExceptionType</b>:' + item.ExceptionType + '<br /><b>Message</b>:' + item.Message + '<br /><b>StackTrace</b>:' + item.StackTrace;
+        }
+
         function submitJSONPOST() {
             var submission = $('#submissionId').val();
             $.ajax({
@@ -36,14 +40,13 @@
                 data: submission,
                 //data: JSON.stringify(submission),
                 contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
-                success: function (data) { console.log(data) }
+                dataType: 'json'
             })
               .done(function (data) {
                   $('#result').html(DisplayJSONResult(data));
               })
               .fail(function (jqXHR, textStatus, err) {
-                  $('#result').html('<br />Error: ' + err);
+                  $('#result').html('<br /><b>Error</b>: ' + err + '<br />' + DisplayErrorDetails(jqXHR.responseJSON));
               });
         }
     </script>
