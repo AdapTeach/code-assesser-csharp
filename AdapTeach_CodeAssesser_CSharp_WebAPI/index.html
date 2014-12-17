@@ -7,7 +7,7 @@
     <div>
         <h2>Assess user code</h2>
         <input type="text" id="submissionId" size="50" />
-        <input type="button" value="Submit POST" onclick="submitPOST();" />
+        <input type="button" value="Submit JSON POST" onclick="submitJSONPOST();" />
         <div id="result" />
     </div>
 
@@ -24,11 +24,11 @@
             return toReturn;
         }
 
-        function DisplayResult(item) {
+        function DisplayJSONResult(item) {
             return '<br /><br /><b>Pass</b>: ' + item.Pass + '<br /><br /><b>CompilationErrors</b>:<br />' + DisplayStrings(item.CompilationErrors) + '<br /><b>ExceptionMessage</b>: ' + item.ExceptionMessage + '<br /><b>FailedTestMessage</b>:<br />' + DisplayStrings(item.FailedTestMessage);
         }
 
-        function submitPOST() {
+        function submitJSONPOST() {
             var submission = $('#submissionId').val();
             $.ajax({
                 type: 'POST',
@@ -40,7 +40,7 @@
                 success: function (data) { console.log(data) }
             })
               .done(function (data) {
-                  $('#result').html(DisplayResult(data));
+                  $('#result').html(DisplayJSONResult(data));
               })
               .fail(function (jqXHR, textStatus, err) {
                   $('#result').html('<br />Error: ' + err);

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
+using AdapTeach_CSharp_Code_Assesser_WebAPI.App_Start;
 
 namespace AdapTeach_CSharp_Code_Assesser_WebAPI
 {
@@ -21,18 +23,12 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI
                 defaults: new { title = RouteParameter.Optional }
             );
 
-            // renvoyer que du JSON
-            //var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
-            //config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
-            var jqueryFormatter = config.Formatters.FirstOrDefault(x => x.GetType() == typeof(JQueryMvcFormUrlEncodedFormatter));
-            config.Formatters.Remove(jqueryFormatter);
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
-            config.Formatters.Remove(config.Formatters.FormUrlEncodedFormatter);
-
-            // renvoyer du JSON par défaut
-            //var jsonFormatter = config.Formatters.JsonFormatter;
-            //config.Formatters.Remove(jsonFormatter);
-            //config.Formatters.Insert(0, jsonFormatter);
+            //Only JSON
+            config.Formatters.Clear();
+            var jsonFormatter = new JsonMediaTypeFormatter();
+            config.Formatters.Add(jsonFormatter);
+            //skip content negociation, we support JSON Only
+            config.Services.Replace(typeof(IContentNegotiator), new JsonContentNegotiator(jsonFormatter));
         }
     }
 }

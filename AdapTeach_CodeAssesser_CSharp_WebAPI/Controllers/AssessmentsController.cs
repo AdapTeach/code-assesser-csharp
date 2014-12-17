@@ -107,7 +107,8 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Controllers
             {
                 if (sub == null)
                 {
-                    return NotFound();
+                    //return NotFound();
+                    return InternalServerError(new ArgumentNullException("Submission", "Error while deserializing JSON object Submission"));
                 }
                 return Ok(AssessmentsController.ProcessSubmission(sub));
             }
