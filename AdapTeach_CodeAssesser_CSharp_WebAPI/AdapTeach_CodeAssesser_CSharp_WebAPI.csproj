@@ -92,7 +92,16 @@
     <Compile Include="App_Start\JsonContentNegotiator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AssessmentsController.cs" />
+    <Compile Include="Engine\CodeCompiler.cs" />
+    <Compile Include="Engine\CodeRunner.cs" />
+    <Compile Include="Engine\CodeRunParams.cs" />
+    <Compile Include="Engine\CodeRunResult.cs" />
+    <Compile Include="Engine\CodeStyleException.cs" />
+    <Compile Include="Engine\CompilationCheck.cs" />
+    <Compile Include="Engine\CompilationResult.cs" />
+    <Compile Include="Engine\MemoryClassLoader.cs" />
     <Compile Include="Engine\SubmissionVerifier.cs" />
+    <Compile Include="Engine\TestClassCodeBuilder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

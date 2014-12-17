@@ -77,10 +77,12 @@ namespace AdapTeach_CSharp_Code_Assesser_WebAPI.Engine
                         }
                     }
                 }
+
                 toReturn.Pass = pass;
             }
             catch (Exception e)
             {
+                toReturn.Pass = false;
                 toReturn.ExceptionMessage = e.Message;
             }
 
